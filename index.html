@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rachmat Hermansyah Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=Anton&family=Caveat:wght@500;600&family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css?v=fx2026">
+</head>
+<body>
+<!-- PRELOADER / LOADING SCREEN (1% - 100%) -->
+  <!-- PRELOADER / LOADING SCREEN (1% - 100%) -->
+  <div id="pageLoader" class="page-loader" aria-live="polite" aria-label="Memuat halaman">
+    <div class="loader-inner">
+      <div class="loader-brand">RH<span>.</span></div>
+      <div class="loader-percent" id="loaderPercent">1%</div>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill" id="loaderBarFill"></div>
+      </div>
+      <p class="loader-caption">MEMUAT PORTFOLIO RACHMAT HERMANSYAH...</p>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var loader = document.getElementById('pageLoader');
+      var percentEl = document.getElementById('loaderPercent');
+      var barFill = document.getElementById('loaderBarFill');
+      if (!loader || !percentEl || !barFill) return;
+
+      document.body.classList.add('is-loading');
+      var current = 1;
+
+      function finishLoader() {
+        percentEl.textContent = '100%';
+        barFill.style.width = '100%';
+        setTimeout(function () {
+          loader.classList.add('is-done');
+          document.body.classList.remove('is-loading');
+        }, 200);
+      }
+
+      var timer = setInterval(function () {
+        // Naik bertahap dari 1% sampai 100% dalam ~1.4 detik
+        var step = current < 70 ? 3 : (current < 92 ? 2 : 1);
+        current = Math.min(100, current + step);
+        percentEl.textContent = current + '%';
+        barFill.style.width = current + '%';
+
+        if (current >= 100) {
+          clearInterval(timer);
+          finishLoader();
+        }
+      }, 28);
+
+      // Pengaman otomatis: maksimal 2.5 detik pasti terbuka
+      setTimeout(function () {
+        clearInterval(timer);
+        finishLoader();
+      }, 2500);
+    })();
+  </script>
+  <!-- FLOATING PILL NAVIGATION -->
+  <nav class="nav-wrapper" id="mainNav" aria-label="Main Navigation">
+    <div class="nav-mascot" id="navMascot">
+      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="18" cy="18" r="16" fill="#ffffff" stroke="#2563eb" stroke-width="2"/>
+        <circle cx="13" cy="16" r="2.2" fill="#0f172a"/>
+        <circle cx="23" cy="16" r="2.2" fill="#0f172a"/>
+        <path d="M14 22 C 16 25, 20 25, 22 22" stroke="#2563eb" stroke-width="2" stroke-linecap="round"/>
+        <path d="M18 2 L18 6" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"/>
+        <circle cx="18" cy="2" r="2.5" fill="#38bdf8"/>
+      </svg>
+    </div>
+
+    <div class="nav-pill" id="navPill">
+      <div class="nav-indicator" id="navIndicator"></div>
+      <a href="#home" class="nav-item active" data-nav="home">Home</a>
+      <a href="#about" class="nav-item" data-nav="about">About</a>
+      <a href="#portfolio" class="nav-item" data-nav="portfolio">Portfolio</a>
+      <a href="#contact" class="nav-item" data-nav="contact">Contact</a>
+    </div>
+  </nav>
+
+  
+
+  <!-- 2. ABOUT SECTION (Dark Theme) -->
+   <!-- 1. HOME SECTION (Cinematic Editorial Hero) -->
+  <section id="home" class="hero-cinematic">
+    <div class="hero-cinematic-top">
+      <span>WEB DEVELOPER / AI &amp; ML<br><span class="hero-muted">INFORMATICS STUDENT</span></span>
+      <span class="hero-avail"><i></i>BERSEDIA UNTUK KOLABORASI</span>
+    </div>
+
+    <!-- Teks Raksasa di Belakang Foto -->
+    <div class="hero-bg-word" id="heroBgWord" aria-hidden="true">PORTFOLIO</div>
+
+    <!-- Foto Profil yang Sama dengan Bagian About -->
+    <div class="hero-portrait-wrap" id="heroPortraitWrap">
+      <div class="hero-red-glow" aria-hidden="true"></div>
+    <img src="profil rachmat.jpeg" alt="Rachmat Hermansyah" class="hero-portrait-img">
+    </div>
+
+    <!-- Teks Utama di Sisi Kiri -->
+    <div class="hero-left-copy" id="heroLeftCopy">
+      <p class="hero-script">Welcome to,</p>
+      <h1 class="hero-main-heading">MY PORTFOLIO<span>.</span></h1>
+    <p class="hero-role-tag">
+  <span id="typingRole">WEB DEVELOPER</span><span class="typing-cursor">|</span>
+</p>
+      <p class="hero-lead-text">
+        Mahasiswa Informatika UNUGHA Cilacap. Membangun solusi digital melalui pengembangan web, data, dan artificial intelligence.
+      </p>
+      <a href="#portfolio" class="hero-red-btn">
+        <span>Lihat karya saya</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </a>
+      <span class="hero-loc-tag">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        CILACAP, INDONESIA
+      </span>
+    </div>
+
+    <!-- Bar Bawah -->
+    <div class="hero-bottom-bar">
+      <span>RACHMAT HERMANSYAH <span class="hero-muted">·</span></span>
+      <span class="hero-scroll-hint">
+        SCROLL KEBAWAH UNTUK MELANJUTKAN 
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </span>
+    </div>
+  </section>
+  <section id="about" class="topography-dark">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-col-left">
+          <h3>Allo, <span id="timeGreeting">selamat datang</span>, saya</h3>
+          <h2>Rachmat<br>Hermansyah</h2>
+          <a href="CV RACHMAT.pdf" target="_blank" class="btn-primary" style="text-decoration: none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            cek CV (PDF)
+          </a>
+        </div>
+
+        <div class="profile-card-wrapper">
+          <div class="profile-avatar-container" id="profileBox" title="Arahkan kursor untuk melihat visual Anime !">
+            <!-- Real Profile Portrait (Aligned 1:1 with Spider-Man) -->
+            <img src="rachmat-avatar.webp" alt="Rachmat Hermansyah" class="profile-img-real">
+
+            <!-- Spider-Man hint pulse animation (Entrance) -->
+            <div class="spiderman-hint-layer" id="spidermanHint">
+              <img src="Gemini_Generated_Image_e260mge260mge260.jpg" alt="Rachmat versi anime" class="profile-img-spiderman">
+            </div>
+
+            <!-- Spider-Man Torch/Flashlight cursor reveal layer -->
+            <div class="profile-spiderman-reveal" id="spidermanReveal">
+              <img src="Gemini_Generated_Image_e260mge260mge260.jpg" alt="Rachmat versi anime" class="profile-img-spiderman">
+            </div>
+
+            <!-- Custom interactive cursor indicator -->
+            <div class="spiderman-cursor-dot" id="spidermanCursor"></div>
+          </div>
+        </div>
+
+        <div class="about-col-right">
+          <p>
+            Saya sedang menempuh studi S1 Informatika di Universitas Nahdlatul Ulama Al Ghazali (UNUGHA) Cilacap. Saya sedang memperdalam Web Programming, Machine Learning, dan juga Artificiall Intelligence, Semogaa dikehidupan yang akan datang saya bisa mencapai mimpi mimpi saya, Aamiin.
+          </p>
+          <div>
+            <span style="font-size: 13px; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Fokus Teknologi:</span>
+            <div class="tech-tags">
+              <span class="tech-tag">Web Dev</span>
+              <span class="tech-tag">Machine Learning</span>
+              <span class="tech-tag">LLM</span>
+              <span class="tech-tag">Data</span>
+            </div>
+          </div>
+          <a href="#portfolio" class="btn-outline" style="align-self: flex-start;">
+            Lihat Projectku
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V8H8"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="timeline-grid">
+        <div>
+          <h3 class="timeline-section-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            Pendidikan
+          </h3>
+          <div class="timeline-wrapper">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">2025 — Sekarang</span>
+              <h4 class="timeline-heading">S1 Informatika</h4>
+              <p class="timeline-sub">Universitas Nahdlatul Ulama Al Ghazali (UNUGHA) Cilacap. Fokus pada pengembangan web dan machine learning.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">Pendidikan Menengah Atas</span>
+              <h4 class="timeline-heading">SMA Negeri 1 Maos</h4>
+              <p class="timeline-sub">Lulusan jurusan MIPA.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">Pendidikan Menengah Pertama</span>
+              <h4 class="timeline-heading">SMP Negeri 1 Maos</h4>
+              <p class="timeline-sub">Lulusan tahun 2021</p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="timeline-section-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Organisasi
+          </h3>
+          <div class="timeline-wrapper">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">Organisasi Regional</span>
+              <h4 class="timeline-heading">Permikomnas Wilayah VII Jateng</h4>
+              <p class="timeline-sub">Badan Pengurus Wilayah Perhimpunan Mahasiswa Informatika dan Ilmu Komputer Nasional Wilayah VII Jawa Tengah.</p>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">Himpunan Program Studi</span>
+              <h4 class="timeline-heading">HIMAFORTIC UNUGHA</h4>
+              <p class="timeline-sub">Himpunan Mahasiswa Informatika UNUGHA Cilacap. Turut ikut serta dalam acara seminar teknologi, dan Kegiatan di Luar Kampus.</p>
+            </div>
+             <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <span class="timeline-year">Unit Kegiatan Mahasiswa</span>
+              <h4 class="timeline-heading">STARLABS UNUGHA</h4>
+              <p class="timeline-sub">Ukm ini memiliki naungan satu universitas, dan saya bergabung di divisi Pemrograman.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="folder-card" onclick="switchPortfolioTab('projects')">
+          <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <div class="folder-num">1+</div>
+          <div class="folder-label">Projectku</div>
+          <div class="folder-btn-action">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+
+        <div class="folder-card" onclick="switchPortfolioTab('certificates')">
+          <svg class="folder-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          <div class="folder-num">5+</div>
+          <div class="folder-label">Certificate</div>
+          <div class="folder-btn-action">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- TECH STACK & TOOLS MARQUEE (OFFICIAL COLORED BRAND LOGOS) -->
+  <section class="tech-marquee-section" aria-label="Tech Stack dan Tools">
+    <div class="container">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <p class="tech-marquee-label">TECH STACK &amp; AI ECOSYSTEM</p>
+    </div>
+
+    <div class="tech-marquee-wrapper">
+      <!-- Track 1 -->
+      <div class="tech-marquee-track">
+        <!-- Python (Blue & Yellow) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#3776AB" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.914 0zM8.708 1.85a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1z"/>
+            <path fill="#FFD43B" d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826h8.121s3.9.445 3.9-5.735c0-6.18-3.403-5.96-3.403-5.96h-2.03v2.867s.109 3.42-3.35 3.42H9.451s-3.24-.052-3.24 3.148v5.292S5.72 24 12.086 24zm3.206-1.85a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
+          </svg>
+          <span>Python</span>
+        </div>
+
+        <!-- Gemini AI (Blue-Purple Gradient Sparkle) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="geminiGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#ec4899"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#geminiGrad1)" d="M12 1C12.3 7.2 16.8 11.7 23 12C16.8 12.3 12.3 16.8 12 23C11.7 16.8 7.2 12.3 1 12C7.2 11.7 11.7 7.2 12 1Z"/>
+          </svg>
+          <span>Gemini AI</span>
+        </div>
+
+        <!-- IBM Langflow (Cyan & Indigo Nodes) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="6" height="6" rx="1.5" stroke="#38bdf8"/>
+            <rect x="16" y="3" width="6" height="6" rx="1.5" stroke="#818cf8"/>
+            <rect x="9" y="15" width="6" height="6" rx="1.5" stroke="#34d399"/>
+            <path d="M5 9v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9" stroke="#94a3b8"/>
+            <path d="M12 14v1" stroke="#34d399"/>
+          </svg>
+          <span>IBM Langflow</span>
+        </div>
+
+        <!-- Astra DB (Magenta & Purple Cube) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#c084fc" d="M12 2L3 7l9 5 9-5-9-5z"/>
+            <path fill="#9333ea" d="M3 7v10l9 5V12L3 7z"/>
+            <path fill="#e879f9" d="M21 7v10l-9 5V12l9-5z"/>
+          </svg>
+          <span>Astra DB</span>
+        </div>
+
+        <!-- Machine Learning / TensorFlow (Orange Gradient) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#FF6F00" d="M12.5 2L3 7.4v4.3l6.5-3.7V22l3-1.7v-5.7l3 1.7v-3.5l-3-1.7V8l6.5 3.7V7.4L12.5 2z"/>
+            <path fill="#FFA000" d="M12.5 2v6l6.5 3.7V7.4L12.5 2z"/>
+          </svg>
+          <span>Machine Learning</span>
+        </div>
+
+        <!-- AWS Cloud (White Text + Official Orange Smile) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#f8fafc" d="M6.76 10.6c0 .48.05.87.15 1.16.1.29.24.6.42.93.06.1.09.2.09.29 0 .12-.08.25-.24.38l-.8.53c-.11.08-.23.12-.34.12-.13 0-.26-.06-.39-.19-.18-.2-.33-.41-.46-.63-.13-.22-.26-.48-.39-.78-.98 1.15-2.21 1.73-3.69 1.73-1.05 0-1.89-.3-2.51-.9-.62-.6-.93-1.4-.93-2.41 0-1.07.38-1.94 1.14-2.6.76-.66 1.78-.99 3.06-.99.42 0 .86.03 1.32.1.46.07.94.17 1.44.3v-.98c0-1.03-.21-1.75-.64-2.17-.43-.42-1.15-.63-2.18-.63-.47 0-.95.06-1.45.17-.5.11-.99.26-1.46.44-.22.09-.38.15-.48.18-.1.03-.18.04-.23.04-.2 0-.3-.15-.3-.44v-.7c0-.23.03-.4.1-.5.07-.1.2-.2.41-.3.47-.24 1.03-.44 1.68-.6.65-.16 1.34-.24 2.08-.24 1.59 0 2.75.36 3.49 1.08.73.72 1.1 1.81 1.1 3.27v4.31zm-3.27 1.98c.41 0 .84-.07 1.29-.22.45-.15.84-.42 1.18-.8.2-.24.35-.51.43-.81.08-.3.13-.67.13-1.1v-.53c-.37-.09-.76-.16-1.17-.21-.41-.05-.81-.07-1.2-.07-.86 0-1.49.17-1.9.51-.41.34-.61.83-.61 1.46 0 .59.15 1.04.46 1.34.3.28.77.43 1.39.43z"/>
+            <path fill="#FF9900" d="M21.24 16.82c-2.56 1.89-6.27 2.9-9.47 2.9-4.48 0-8.52-1.66-11.57-4.42-.24-.22-.03-.52.26-.35 3.3 1.92 7.38 3.08 11.59 3.08 2.84 0 5.96-.59 8.83-1.81.43-.19.8.28.36.6zm1.07-1.22c-.33-.42-2.16-.2-2.99-.1-.25.03-.29-.19-.06-.35 1.46-1.03 3.86-.73 4.14-.39.28.35-.07 2.76-1.45 3.91-.21.18-.41.08-.32-.15.31-.77 1.01-2.5.68-2.92z"/>
+          </svg>
+          <span>AWS Cloud</span>
+        </div>
+
+        <!-- JavaScript (Official Yellow #F7DF1E + Dark Text) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="3" fill="#F7DF1E"/>
+            <path fill="#111827" d="M13.73 17.27c.42.73 1.13 1.26 2.34 1.26 1.05 0 1.72-.52 1.72-1.25 0-.87-.69-1.18-1.84-1.68l-.63-.27c-1.82-.78-3.03-1.75-3.03-3.8 0-1.89 1.44-3.33 3.69-3.33 1.6 0 2.75.56 3.58 2.02l-1.96 1.26c-.43-.78-.9-1.08-1.62-1.08-.74 0-1.21.47-1.21 1.08 0 .76.47 1.06 1.56 1.53l.63.27c2.14.92 3.35 1.85 3.35 3.96 0 2.27-1.78 3.51-4.17 3.51-2.34 0-3.85-1.11-4.59-2.57l2.18-1.26zm-6.48.21c.36.64.69 1.18 1.48 1.18.76 0 1.23-.3 1.23-1.45V9.36h2.3v7.88c0 2.39-1.4 3.48-3.44 3.48-1.85 0-2.92-.96-3.46-2.11l1.89-1.13z"/>
+          </svg>
+          <span>JavaScript</span>
+        </div>
+
+        <!-- HTML5 (Official Orange Shield #E34F26) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#E34F26" d="M3 2l1.64 18.38L12 22.5l7.36-2.12L21 2H3z"/>
+            <path fill="#EF652A" d="M12 3.5v17.4l5.95-1.71L19.35 3.5H12z"/>
+            <path fill="#FFFFFF" d="M17.31 7.99H8.95l.21 2.32h7.94l-.61 6.73-4.49 1.24-4.49-1.24-.31-3.44h2.26l.16 1.75 2.38.64 2.38-.64.25-2.76H7.12l-.59-6.83h10.98l-.2 2.27z"/>
+          </svg>
+          <span>HTML5</span>
+        </div>
+
+        <!-- CSS3 (Official Blue Shield #1572B6) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#1572B6" d="M3 2l1.64 18.38L12 22.5l7.36-2.12L21 2H3z"/>
+            <path fill="#33A9DC" d="M12 3.5v17.4l5.95-1.71L19.35 3.5H12z"/>
+            <path fill="#FFFFFF" d="M17.12 16.99L12 18.42l-5.12-1.43-.36-3.99h2.27l.18 2.02 3.03.82 3.03-.82.32-3.53H8.79l-.19-2.22h6.95l.21-2.29H6.51l-.2-2.23h11.38l-.57 12.24z"/>
+          </svg>
+          <span>CSS3</span>
+        </div>
+
+        <!-- GitHub (Crisp White Octocat) -->
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#f8fafc" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          <span>Git &amp; GitHub</span>
+        </div>
+      </div>
+
+      <!-- Track 2 (Duplikat untuk looping mulus tanpa jeda) -->
+      <div class="tech-marquee-track" aria-hidden="true">
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#3776AB" d="M11.914 0C5.82 0 6.2 2.656 6.2 2.656l.007 2.752h5.814v.826H3.9S0 5.789 0 11.969c0 6.18 3.403 5.96 3.403 5.96h2.03v-2.867s-.109-3.42 3.35-3.42h5.766s3.24.052 3.24-3.148V3.202S18.28 0 11.914 0zM8.708 1.85a1.05 1.05 0 1 1 0 2.1 1.05 1.05 0 0 1 0-2.1z"/>
+            <path fill="#FFD43B" d="M12.086 24c6.094 0 5.714-2.656 5.714-2.656l-.007-2.752h-5.814v-.826h8.121s3.9.445 3.9-5.735c0-6.18-3.403-5.96-3.403-5.96h-2.03v2.867s.109 3.42-3.35 3.42H9.451s-3.24-.052-3.24 3.148v5.292S5.72 24 12.086 24zm3.206-1.85a1.05 1.05 0 1 1 0-2.1 1.05 1.05 0 0 1 0 2.1z"/>
+          </svg>
+          <span>Python</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <defs>
+              <linearGradient id="geminiGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#38bdf8"/>
+                <stop offset="50%" stop-color="#6366f1"/>
+                <stop offset="100%" stop-color="#ec4899"/>
+              </linearGradient>
+            </defs>
+            <path fill="url(#geminiGrad2)" d="M12 1C12.3 7.2 16.8 11.7 23 12C16.8 12.3 12.3 16.8 12 23C11.7 16.8 7.2 12.3 1 12C7.2 11.7 11.7 7.2 12 1Z"/>
+          </svg>
+          <span>Gemini AI</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="3" width="6" height="6" rx="1.5" stroke="#38bdf8"/>
+            <rect x="16" y="3" width="6" height="6" rx="1.5" stroke="#818cf8"/>
+            <rect x="9" y="15" width="6" height="6" rx="1.5" stroke="#34d399"/>
+            <path d="M5 9v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V9" stroke="#94a3b8"/>
+            <path d="M12 14v1" stroke="#34d399"/>
+          </svg>
+          <span>IBM Langflow</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#c084fc" d="M12 2L3 7l9 5 9-5-9-5z"/>
+            <path fill="#9333ea" d="M3 7v10l9 5V12L3 7z"/>
+            <path fill="#e879f9" d="M21 7v10l-9 5V12l9-5z"/>
+          </svg>
+          <span>Astra DB</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#FF6F00" d="M12.5 2L3 7.4v4.3l6.5-3.7V22l3-1.7v-5.7l3 1.7v-3.5l-3-1.7V8l6.5 3.7V7.4L12.5 2z"/>
+            <path fill="#FFA000" d="M12.5 2v6l6.5 3.7V7.4L12.5 2z"/>
+          </svg>
+          <span>Machine Learning</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#f8fafc" d="M6.76 10.6c0 .48.05.87.15 1.16.1.29.24.6.42.93.06.1.09.2.09.29 0 .12-.08.25-.24.38l-.8.53c-.11.08-.23.12-.34.12-.13 0-.26-.06-.39-.19-.18-.2-.33-.41-.46-.63-.13-.22-.26-.48-.39-.78-.98 1.15-2.21 1.73-3.69 1.73-1.05 0-1.89-.3-2.51-.9-.62-.6-.93-1.4-.93-2.41 0-1.07.38-1.94 1.14-2.6.76-.66 1.78-.99 3.06-.99.42 0 .86.03 1.32.1.46.07.94.17 1.44.3v-.98c0-1.03-.21-1.75-.64-2.17-.43-.42-1.15-.63-2.18-.63-.47 0-.95.06-1.45.17-.5.11-.99.26-1.46.44-.22.09-.38.15-.48.18-.1.03-.18.04-.23.04-.2 0-.3-.15-.3-.44v-.7c0-.23.03-.4.1-.5.07-.1.2-.2.41-.3.47-.24 1.03-.44 1.68-.6.65-.16 1.34-.24 2.08-.24 1.59 0 2.75.36 3.49 1.08.73.72 1.1 1.81 1.1 3.27v4.31zm-3.27 1.98c.41 0 .84-.07 1.29-.22.45-.15.84-.42 1.18-.8.2-.24.35-.51.43-.81.08-.3.13-.67.13-1.1v-.53c-.37-.09-.76-.16-1.17-.21-.41-.05-.81-.07-1.2-.07-.86 0-1.49.17-1.9.51-.41.34-.61.83-.61 1.46 0 .59.15 1.04.46 1.34.3.28.77.43 1.39.43z"/>
+            <path fill="#FF9900" d="M21.24 16.82c-2.56 1.89-6.27 2.9-9.47 2.9-4.48 0-8.52-1.66-11.57-4.42-.24-.22-.03-.52.26-.35 3.3 1.92 7.38 3.08 11.59 3.08 2.84 0 5.96-.59 8.83-1.81.43-.19.8.28.36.6zm1.07-1.22c-.33-.42-2.16-.2-2.99-.1-.25.03-.29-.19-.06-.35 1.46-1.03 3.86-.73 4.14-.39.28.35-.07 2.76-1.45 3.91-.21.18-.41.08-.32-.15.31-.77 1.01-2.5.68-2.92z"/>
+          </svg>
+          <span>AWS Cloud</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <rect x="2" y="2" width="20" height="20" rx="3" fill="#F7DF1E"/>
+            <path fill="#111827" d="M13.73 17.27c.42.73 1.13 1.26 2.34 1.26 1.05 0 1.72-.52 1.72-1.25 0-.87-.69-1.18-1.84-1.68l-.63-.27c-1.82-.78-3.03-1.75-3.03-3.8 0-1.89 1.44-3.33 3.69-3.33 1.6 0 2.75.56 3.58 2.02l-1.96 1.26c-.43-.78-.9-1.08-1.62-1.08-.74 0-1.21.47-1.21 1.08 0 .76.47 1.06 1.56 1.53l.63.27c2.14.92 3.35 1.85 3.35 3.96 0 2.27-1.78 3.51-4.17 3.51-2.34 0-3.85-1.11-4.59-2.57l2.18-1.26zm-6.48.21c.36.64.69 1.18 1.48 1.18.76 0 1.23-.3 1.23-1.45V9.36h2.3v7.88c0 2.39-1.4 3.48-3.44 3.48-1.85 0-2.92-.96-3.46-2.11l1.89-1.13z"/>
+          </svg>
+          <span>JavaScript</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#E34F26" d="M3 2l1.64 18.38L12 22.5l7.36-2.12L21 2H3z"/>
+            <path fill="#EF652A" d="M12 3.5v17.4l5.95-1.71L19.35 3.5H12z"/>
+            <path fill="#FFFFFF" d="M17.31 7.99H8.95l.21 2.32h7.94l-.61 6.73-4.49 1.24-4.49-1.24-.31-3.44h2.26l.16 1.75 2.38.64 2.38-.64.25-2.76H7.12l-.59-6.83h10.98l-.2 2.27z"/>
+          </svg>
+          <span>HTML5</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#1572B6" d="M3 2l1.64 18.38L12 22.5l7.36-2.12L21 2H3z"/>
+            <path fill="#33A9DC" d="M12 3.5v17.4l5.95-1.71L19.35 3.5H12z"/>
+            <path fill="#FFFFFF" d="M17.12 16.99L12 18.42l-5.12-1.43-.36-3.99h2.27l.18 2.02 3.03.82 3.03-.82.32-3.53H8.79l-.19-2.22h6.95l.21-2.29H6.51l-.2-2.23h11.38l-.57 12.24z"/>
+          </svg>
+          <span>CSS3</span>
+        </div>
+
+        <div class="tech-pill">
+          <svg width="20" height="20" viewBox="0 0 24 24">
+            <path fill="#f8fafc" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+          </svg>
+          <span>Git &amp; GitHub</span>
+        </div>
+      </div>
+    </div>
+    <!-- Panel Penjelasan Tech Stack saat Logo Diklik -->
+    <div class="container">
+      <div class="tech-detail-drawer" id="techDetailDrawer" hidden>
+        <div class="tech-detail-header">
+          <div class="tech-detail-title-wrap">
+            <span class="tech-detail-tag" id="techDetailCategory">AI &amp; DATA</span>
+            <h4 id="techDetailName">Python</h4>
+          </div>
+          <button type="button" class="tech-detail-close" id="techDetailClose" aria-label="Tutup penjelasan">&times;</button>
+        </div>
+        <p class="tech-detail-desc" id="techDetailDesc"></p>
+      </div>
+    </div>
+  </section>
+  
+  <!-- MUSIC / SPOTIFY SECTION -->
+  <section id="music" class="music-section topography-dark">
+    <div class="container">
+      <div class="music-showcase-card">
+        <!-- Kolom Kiri: Judul, Deskripsi & Tombol -->
+        <div class="music-info">
+          <h2>
+            Teman Ngoding.<br>
+            <span>Penambah Inspirasi.</span>
+          </h2>
+          <p>
+            Intip Playlistku.
+          </p>
+          <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="music-spotify-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 18V5l12-2v13"/>
+              <circle cx="6" cy="18" r="3"/>
+              <circle cx="18" cy="16" r="3"/>
+            </svg>
+            <span>Cek di Spotify</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M7 17L17 7M7 7h10v10"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Kolom Kanan: Spotify Playlist Embed -->
+        <div class="music-player-wrap">
+          <iframe
+            style="border-radius: 14px;"
+            src="https://open.spotify.com/embed/playlist/2OJeKJ6eMlJWGviF98Y5RG?si=f1e0560e103f4b7c"
+            width="100%"
+            height="352"
+            frameborder="0"
+            allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+            title="Spotify Playlist">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. PORTFOLIO SECTION (Light Theme) -->
+  <section id="portfolio" class="topography-light">
+    <div class="container">
+      <div class="section-header-light">
+        <span class="section-badge">Showcase Karya</span>
+        <h2>Portfolio</h2>
+        <p>Koleksi proyek perangkat lunak, lisensi sertifikasi keahlian, dan rekaman penghargaan akademik maupun kompetisi.</p>
+      </div>
+
+      <div class="portfolio-tabs">
+        <button class="tab-btn active" data-target="projects" onclick="switchPortfolioTab('projects')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          Projects
+        </button>
+        <button class="tab-btn" data-target="certificates" onclick="switchPortfolioTab('certificates')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></svg>
+          Certificates
+        </button>
+      </div>
+
+      <!-- TAB 1: PROJECTS -->
+      <div class="tab-panel active" id="tab-projects">
+        <div class="projects-grid">
+          <article class="project-card">
+  <button class="project-thumb" type="button" data-case-study="onboarding-buddy" aria-label="Buka studi kasus Onboarding Buddy System">
+    <img src="Cuplikan layar 2026-11-09 182944.png" alt="Workflow Onboarding Buddy System di IBM Langflow Desktop" loading="lazy">
+  </button>
+  <div class="project-body">
+    <h3 class="project-title">Onboarding Buddy System</h3>
+    <p class="project-desc">AI agent untuk membantu proses onboarding karyawan baru di perusahaan. Sistem ini menggunakan IBM Langflow untuk membaca dokumen referensi, memecah teks, menyimpan dan mencari informasi melalui Astra DB, lalu menghasilkan jawaban dengan Gemini 3.6 Flash.</p>
+    <div class="project-meta">
+      <div class="project-tags">
+        <span class="project-tag">IBM Langflow</span>
+        <span class="project-tag">AI Agent</span>
+        <span class="project-tag">Astra DB</span>
+        <span class="project-tag">Gemini</span>
+      </div>
+      <button type="button" class="project-link case-study-trigger" data-case-study="onboarding-buddy" style="background:none; border:none; cursor:pointer;">Studi Kasus &rarr;</button>
+    </div>
+  </div>
+</article>
+        </div>
+      </div>
+
+      <!-- TAB 2: CERTIFICATES -->
+      <div class="tab-panel" id="tab-certificates">
+        <div class="carousel-container">
+          <div class="carousel-track-wrapper">
+            <div class="carousel-track" id="certTrack">
+              <article class="cert-card">
+                <a class="cert-thumb" href="rachmath%20certif.pdf" target="_blank" rel="noopener noreferrer" aria-label="Buka sertifikat Gemini Academy (PDF)">
+                  <span class="cert-thumb-pdf">GEMINI<br><small>ACADEMY · PDF</small></span>
+                </a>
+                <div class="cert-body">
+                  <h4 class="cert-title">Gemini Academy</h4>
+                  <p class="cert-org">Gemini Academy</p>
+                  <p class="cert-date">Sertifikat kompetensi · PDF</p>
+                  <div class="project-tags"><span class="project-tag">Artificial Intelligence</span><span class="project-tag">Machine Learning</span><span class="project-tag">Gemini</span></div>
+                  <a href="rachmath%20certif.pdf" target="_blank" rel="noopener noreferrer" class="project-link cert-link">Lihat Sertifikat &rarr;</a>
+                </div>
+              </article>
+
+              <article class="cert-card">
+                <div class="cert-thumb"><img src="https://images.credly.com/images/d8f30e8e-4c24-42e8-bb15-b106bb082614/linkedin_thumb_BadgeEmblem_BuildAnAIAgent.png" alt="Badge Build an AI Agent" loading="lazy"></div>
+                <div class="cert-body">
+                  <h4 class="cert-title">Build an AI Agent</h4>
+                  <p class="cert-org">IBM SkillsBuild</p>
+                  <p class="cert-date">Credly Badge</p>
+                  <div class="project-tags"><span class="project-tag">AI Agent</span><span class="project-tag">Artificial Intelligence</span><span class="project-tag">IBM SkillsBuild</span></div>
+                  <a href="https://www.credly.com/badges/8ab98c60-faa7-4948-b378-741b0124967c/linked_in_profile" target="_blank" rel="noopener noreferrer" class="project-link cert-link">Lihat Sertifikat &rarr;</a>
+                </div>
+              </article>
+
+              <article class="cert-card">
+                <div class="cert-thumb"><img src="https://dicoding-web-img.sgp1.digitaloceanspaces.com/original/academy/academy_certificate_placeholder_v3.png" alt="Sertifikat Belajar Dasar Cloud dan Gen AI di AWS" loading="lazy"></div>
+                <div class="cert-body">
+                  <h4 class="cert-title">Belajar Dasar Cloud dan Gen AI di AWS</h4>
+                  <p class="cert-org">Dicoding Academy</p>
+                  <p class="cert-date">Sertifikat kompetensi</p>
+                  <div class="project-tags"><span class="project-tag">Cloud Computing</span><span class="project-tag">AWS</span><span class="project-tag">Generative AI</span></div>
+                  <a href="https://www.dicoding.com/certificates/JMZVL4Q9QXN9" target="_blank" rel="noopener noreferrer" class="project-link cert-link">Lihat Sertifikat &rarr;</a>
+                </div>
+              </article>
+
+              <article class="cert-card">
+                <div class="cert-thumb"><img src="https://dicoding-web-img.sgp1.digitaloceanspaces.com/original/academy/academy_certificate_placeholder_v3.png" alt="Sertifikat Spec-Driven Development dengan Kiro" loading="lazy"></div>
+                <div class="cert-body">
+                  <h4 class="cert-title">Spec-Driven Development dengan Kiro</h4>
+                  <p class="cert-org">Dicoding Academy</p>
+                  <p class="cert-date">Sertifikat kompetensi</p>
+                  <div class="project-tags"><span class="project-tag">Software Development</span><span class="project-tag">Kiro</span><span class="project-tag">AI IDE</span></div>
+                  <a href="https://www.dicoding.com/certificates/1OP87W8K1ZQK" target="_blank" rel="noopener noreferrer" class="project-link cert-link">Lihat Sertifikat &rarr;</a>
+                </div>
+              </article>
+
+              <article class="cert-card">
+                <div class="cert-thumb"><img src="https://dicoding-web-img.sgp1.digitaloceanspaces.com/original/academy/academy_certificate_placeholder_v3.png" alt="Sertifikat Belajar Dasar AI" loading="lazy"></div>
+                <div class="cert-body">
+                  <h4 class="cert-title">Belajar Dasar AI</h4>
+                  <p class="cert-org">Dicoding Academy</p>
+                  <p class="cert-date">Sertifikat kompetensi</p>
+                  <div class="project-tags"><span class="project-tag">Artificial Intelligence</span><span class="project-tag">Machine Learning</span><span class="project-tag">Deep Learning</span></div>
+                  <a href="https://www.dicoding.com/certificates/4EXGJ492EXRL" target="_blank" rel="noopener noreferrer" class="project-link cert-link">Lihat Sertifikat &rarr;</a>
+                </div>
+              </article>
+
+              <article class="cert-card">
+                <div class="cert-thumb cert-thumb-pdf"><span>CCSE<br><small>PDF</small></span></div>
+                <div class="cert-body">
+                  <h4 class="cert-title">CCSE</h4>
+                  <p class="cert-org">Sertifikat Kompetensi</p>
+                  <p class="cert-date">Dokumen PDF</p>
+                  <div class="project-tags"><span class="project-tag">Cybersecurity</span><span class="project-tag">Security</span><span class="project-tag">Certification</span></div>
+                  <a href="CCSE_rachmathermansyah232@gmail.com_CCSE-261026-01-1-00065%20(1).pdf" target="_blank" rel="noopener noreferrer" class="project-link cert-link">Lihat Sertifikat &rarr;</a>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <div class="carousel-nav-btns">
+            <button class="carousel-nav-btn" onclick="prevCert()" aria-label="Previous Certificate">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="carousel-nav-btn" onclick="nextCert()" aria-label="Next Certificate">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- ASYMMETRIC FLOATING GALLERY -->
+       <section id="contact" class="topography-light">
+    <div class="container">
+      <div class="section-header-light">
+        <span class="section-badge">Dokumentasi & Aktifitas</span>
+        <h2>Gallery Kegiatan</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <!-- Floating item 1 -->
+          <button class="gallery-item" type="button" data-gallery-title="UKM STARLABS • Pemrograman" data-gallery-description="Kegiatan belajar dan berbagi pengalaman pemrograman bersama UKM STARLABS.">
+            <div class="gallery-img-box">
+              <img src="Ukm coding.jpeg" alt="UKM STARLABS Pemrograman" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <span class="gallery-caption">UKM STARLABS &bull; Pemrograman</span>
+          </button>
+
+          <!-- Floating item 2 -->
+          <button class="gallery-item" type="button" data-gallery-title="BPW Permikomnas • Divisi Kewirausahaan" data-gallery-description="Dokumentasi aktivitas kewirausahaan dan kolaborasi di BPW Permikomnas Wilayah VII.">
+            <div class="gallery-img-box">
+              <img src="kwu.jpeg" alt="BPW Permikomnas Wilayah VII" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <span class="gallery-caption">BPW Permikomnas &bull; Divisi Kewirausahaan</span>
+          </button>
+
+          <!-- Floating item 3 -->
+          <button class="gallery-item" type="button" data-gallery-title="HIMAFORTIC UNUGHA • Divisi EKSOS" data-gallery-description="Kegiatan organisasi dan kontribusi sosial bersama divisi EKSOS HIMAFORTIC UNUGHA.">
+            <div class="gallery-img-box">
+              <img src="Foto divisi.jpeg" alt="HIMAFORTIC UNUGHA" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <span class="gallery-caption">HIMAFORTIC UNUGHA &bull; Divisi EKSOS</span>
+          </button>
+
+          <!-- Floating item 4 -->
+          <button class="gallery-item" type="button" data-gallery-title="Outdoor Mountain Expedition" data-gallery-description="Dokumentasi kegiatan luar ruang dan pengalaman menjelajahi pegunungan.">
+            <div class="gallery-img-box">
+              <img src="WhatsApp Image 2026-11-10 at 13.38.07.jpeg" alt="Ekspedisi Pegunungan" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+            </div>
+            <span class="gallery-caption">Mountain Expedition</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. CONTACT SECTION (Light Theme) -->
+  <section id="contact" class="topography-light">
+    <div class="container">
+      <div class="section-header-light">
+        <span class="section-badge">Ayo Terhubung</span>
+        <h2>Hubungi Saya</h2>
+        <p>Ingin diskusi teknologi atau ingin berkolaborasi??</p>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-panel">
+          <h3 class="panel-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand-blue)" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Silahkan Hubungi Saya
+          </h3>
+
+          <div class="social-list">
+            <!-- WhatsApp -->
+            <a href="https://wa.me/6289508921497" target="_blank" rel="noopener noreferrer" class="social-card">
+              <div class="social-icon" style="background: #ecfdf5; color: #10b981;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="social-info">
+                <h4>WhatsApp</h4>
+                <p>+62 895 0892 1497</p>
+              </div>
+            </a>
+
+            <a href="https://www.instagram.com/rchmth_?xtok=ZGlzdXQ0b29kdXFz" target="_blank" rel="noopener noreferrer" class="social-card">
+              <div class="social-icon" style="background: #fdf2f8; color: #db2777;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </div>
+              <div class="social-info">
+                <h4>Instagram</h4>
+                <p>@rchmth_</p>
+              </div>
+            </a>
+
+            <a href="https://github.com/rachmathermansyah232-glitch" target="_blank" rel="noopener noreferrer" class="social-card">
+              <div class="social-icon" style="background: #f1f5f9; color: #0f172a;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+              </div>
+              <div class="social-info">
+                <h4>GitHub</h4>
+                <p>rachmathermansyah232-glitch</p>
+              </div>
+            </a>
+
+            <a href="https://www.tiktok.com/@mattdoang_?_r=1&_t=ZS-9BTlChvuAj8" target="_blank" rel="noopener noreferrer" class="social-card">
+              <div class="social-icon" style="background: #f8fafc; color: #000000;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+              </div>
+              <div class="social-info">
+                <h4>TikTok</h4>
+                <p>@mattdoang_</p>
+              </div>
+            </a>
+
+            <div class="social-card" style="cursor: pointer;" onclick="copyEmail()">
+              <div class="social-icon" style="background: #eff6ff; color: #2563eb;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </div>
+              <div class="social-info" style="flex-grow: 1;">
+                <h4>Email</h4>
+                <p id="emailText">rachmathermansyah232@gmail.com</p>
+              </div>
+              <span style="font-size: 11px; font-weight: 700; color: #2563eb; background: #dbeafe; padding: 2px 8px; border-radius: 4px;">Salin</span>
+            </div>
+                <h4>Email</h4>
+                <p id="emailText">rachmathermansyah.255211019@mhs.unugha.ac.id</p>
+              </div>
+              <span style="font-size: 11px; font-weight: 700; color: #2563eb; background: #dbeafe; padding: 2px 8px; border-radius: 4px;">Salin</span>
+            </div>
+          </div>
+
+          <div style="padding: 16px; background: #f8fafc; border-radius: 12px; border: 1px dashed #cbd5e1; font-size: 13px; color: #64748b; line-height: 1.5;">
+           Tunggu apalagi? Ayo Terhubung
+          </div>
+        </div>
+
+        <div class="contact-panel">
+          <h3 class="panel-title">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--brand-blue)" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+            Tulis Komentar
+          </h3>
+
+          <form id="commentForm" onsubmit="handleCommentSubmit(event)">
+            <div class="form-group">
+              <label class="form-label" for="commentName">Nama Lengkap</label>
+              <input type="text" id="commentName" class="form-control" placeholder="Masukkan nama Anda..." required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="commentBody">Komentar / Pesan</label>
+              <textarea id="commentBody" class="form-control" placeholder="Tuliskan apresiasi, pertanyaan, atau pesan untuk Rachmat..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center;">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              Kirim Komentar
+            </button>
+          </form>
+
+        
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Dikembangkan oleh Rachmat Hermansyah.</p>
+    </div>
+  </footer>
+
+  <div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-labelledby="galleryModalTitle" hidden>
+    <div class="gallery-modal-backdrop" data-close-gallery></div>
+    <div class="gallery-modal-card">
+      <button class="gallery-modal-close" type="button" aria-label="Tutup" data-close-gallery>&times;</button>
+      <img id="galleryModalImage" src="" alt="">
+      <div class="gallery-modal-content">
+        <h3 id="galleryModalTitle"></h3>
+        <p id="galleryModalDescription"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast-msg" id="toast">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toastText">Pesan terkirim!</span>
+  </div>
+<!-- PROJECT CASE STUDY MODAL -->
+  <div class="case-modal" id="caseStudyModal" role="dialog" aria-modal="true" aria-labelledby="caseModalTitle" hidden>
+    <div class="case-modal-backdrop" data-close-case></div>
+    <div class="case-modal-card">
+      <button class="case-modal-close" type="button" aria-label="Tutup studi kasus" data-close-case>&times;</button>
+
+      <div class="case-modal-hero">
+        <img id="caseModalImg" src="" alt="">
+        <span class="case-modal-badge" id="caseModalBadge">AI / RAG ARCHITECTURE</span>
+      </div>
+
+      <div class="case-modal-body">
+        <h3 id="caseModalTitle"></h3>
+        <p class="case-modal-subtitle" id="caseModalSubtitle"></p>
+
+        <div class="case-section">
+          <h4>01. Masalah yang Diselesaikan</h4>
+          <p id="caseModalProblem"></p>
+        </div>
+
+        <div class="case-section">
+          <h4>02. Arsitektur Alur Kerja AI (Pipeline)</h4>
+          <div class="case-flow-list" id="caseModalFlow"></div>
+        </div>
+
+        <div class="case-section">
+          <h4>03. Tech Stack &amp; Komponen</h4>
+          <div class="case-stack-tags" id="caseModalStack"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+<script src="script.js?v=fx2026"></script>
+</body>
+</html>
